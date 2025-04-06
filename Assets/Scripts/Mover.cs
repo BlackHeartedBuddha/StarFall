@@ -10,7 +10,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PrintInfo();
     }
 
     // Update is called once per frame
@@ -22,8 +22,21 @@ public class NewBehaviourScript : MonoBehaviour
         //     transform.position = new Vector3(0, 0, 0);
         // }
 
+        PrintState();
         float xValue = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         float zValue = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         transform.Translate(xValue, 0, zValue);
+    }
+
+    void PrintState()
+    {
+        Debug.Log($"Object Position: {transform.position}");
+        Debug.Log($"Object Speed: {speed}");
+    }
+
+    void PrintInfo()
+    {
+        Debug.Log("Hello World!");
+        Debug.Log("use Arrow keys to move the object");
     }
 }
